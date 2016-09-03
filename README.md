@@ -40,10 +40,10 @@ null
 とだけ表示されるはず
 
 
-もう一個ターミナル起動しとく
-
-
 #### POST - ユーザの作成
+
+もう一個ターミナル起動 (```go run main.go```したターミナル残したまま)
+
 ```
 $ cd $GOPATH/src/gitlab.com/hennin/CRUD-back/test_sh
 $ ./post_test.sh http://localhost:8080/users 1 '{"name": "ichiro", "age": 20}'
