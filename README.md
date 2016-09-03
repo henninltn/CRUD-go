@@ -11,11 +11,12 @@ CRUD-back
   - ユーザの情報の書き換え
   - ユーザの削除
 
-## Installation & Useag
+## Installation & Usage
 ```
 $ sudo pacman -Syu
 > password: your password
 $ sudo pacman -S mongodb
+> password: you password
 
 $ go get github.com/gin-gonic/gin
 
@@ -28,10 +29,15 @@ $ systemctl start mongodb
 $ go run main.go
 ```
 
+
 #### GET
 ブラウザからhttp://localhost:8080/users にアクセス
 
-```null```とだけ表示されるはず
+```
+null
+```
+
+とだけ表示されるはず
 
 
 もう一個ターミナル起動しとく
