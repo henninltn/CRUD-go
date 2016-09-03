@@ -8,7 +8,7 @@ CRUD-back
   - 全てのユーザのデータの取得
   - 特定ユーザのデータの取得
   - ユーザの作成
-  - ユーザの情報の書き換え
+  - ユーザのデータの書き換え
   - ユーザの削除
 
 ## Installation & Usage
@@ -30,7 +30,7 @@ $ go run main.go
 ```
 
 
-#### GET
+#### GET - 全てのユーザのデータの取得
 ブラウザからhttp://localhost:8080/users にアクセス
 
 ```
@@ -43,7 +43,7 @@ null
 もう一個ターミナル起動しとく
 
 
-#### POST
+#### POST - ユーザの作成
 ```
 $ cd $GOPATH/src/gitlab.com/hennin/CRUD-back/test_sh
 $ ./post_test.sh http://localhost:8080/users 1 '{"name": "ichiro", "age": 20}'
@@ -53,36 +53,40 @@ $ ./post_test.sh http://localshot:8080/users 1 '{"name": "jiro", "age": 19}'
 ブラウザで http://localhost:8080/users にアクセス
 
 ```
-[{"id":"何か文字列1","name":"ichiro","age":20"},{"id":"何か文字列2","name":"jiro","age":19}]
+[{"id":"何か文字列1","name":"ichiro","age":20},{"id":"何か文字列2","name":"jiro","age":19}]
 ```
 
 と表示されるはず
 
 
-#### もっかいGET
+#### もっかいGET - 特定ユーザのデータの取得
 ブラウザで http://localhost:8080?id=何か文字列1 にアクセス
 
 ```
-{"id":"何か文字列","name":"ichiro","age":20"}
+{"id":"何か文字列1","name":"ichiro","age":20}
 ```
 
 と表示されるはず
 
 
-#### PATCH
+#### PATCH - ユーザのデータの書き換え
 ```
-$ ./patch_test.sh http://localhost:8080/users 1 '{"id":"何か文字列","name": "ichiro", "age": 21}'
+$ ./patch_test.sh http://localhost:8080/users 1 '{"id":"何か文字列1","name": "ichiro", "age": 21}'
 ```
+
+http://localhost:8080/users
 
 ```
 [{"id":"何か文字列1","name":"ichiro","age":21"},{"id":"何か文字列2","name":"jiro","age":19}]
 ```
 
 
-#### DELETE
+#### DELETE - ユーザの削除
 ```
-$ ./delete_test.sh http://localhost:8080/users 1 '{"id":"何か文字列","name": "ichiro", "age": 21}'
+$ ./delete_test.sh http://localhost:8080/users 1 '{"id":"何か文字列1","name": "ichiro", "age": 21}'
 ```
+
+http://localhost:8080/users
 
 ```
 [{"id":"何か文字列2","name":"jiro","age":19}]
